@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import edu.itstep.notebookdbstorage.entities.Note;
 
 public class DBService {
+    public static final String DATABASE_NAME = "notebook.db";
     private static final String TABLE_NAME = "notes";
     private static final String COLUMN_TITLE = "title";
     private static final String COLUMN_THEME = "theme";
@@ -18,7 +19,7 @@ public class DBService {
     SQLiteDatabase db;
 
     public DBService(Context context) {
-        db = context.openOrCreateDatabase("notebook.db", context.MODE_PRIVATE, null);
+        db = context.openOrCreateDatabase(DATABASE_NAME, context.MODE_PRIVATE, null);
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (title TEXT, theme TEXT, description TEXT)"
         );

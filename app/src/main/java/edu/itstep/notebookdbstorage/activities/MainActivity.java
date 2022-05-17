@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 import edu.itstep.notebookdbstorage.R;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tvDB = findViewById(R.id.tvDB);
+        tvDB.setText(DBService.DATABASE_NAME);
 
         dbService = new DBService(this);
         themes = NotebookService.getThemes();
